@@ -25,7 +25,7 @@ const DetailMovies = () => {
   }
 
   const backgroundStyle = {
-    backgroundImage: `url('https://image.tmdb.org/t/p/original/${fetchDetail.backdrop_path}')`,
+    backgroundImage: `url('https://image.tmdb.org/t/p/original/${fetchDetail.data.backdrop_path}')`,
   };
   return (
     <>
@@ -41,7 +41,7 @@ const DetailMovies = () => {
           <div className="search-section z-50 w-[40%] flex justify-center items-center">
             <div className="relative w-full">
               <input
-                value={`${fetchDetail.title}`}
+                value={`${fetchDetail.data.title}`}
                 className="border-2 w-full bg-transparent font-bold font-montserrat text-white border-red-600 rounded-full px-4 py-2 outline-red-600 focus:border-red-600 focus:outline-none"
                 placeholder="what do you want to watch?"
               />
@@ -72,33 +72,33 @@ const DetailMovies = () => {
         >
           <div className="Movie-title z-50">
             <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem]">
-              {fetchDetail.title}
+              {fetchDetail.data.title}
             </h1>
             {/* <h1>{id}</h1> */}
           </div>
           <div className="Genre-list z-50 flex gap-4">
-            {fetchDetail.genres
-              ? fetchDetail.genres.map((genre, i) => (
+            {fetchDetail.data.genres
+              ? fetchDetail.data.genres.map((genre, i) => (
                   <span className="font-montserrat font-normal" key={genre.id}>
                     {genre.name}
-                    {i < fetchDetail.genres.length - 1 && ", "}
+                    {i < fetchDetail.data.genres.length - 1 && ", "}
                   </span>
                 ))
               : ""}
           </div>
           <div className="Movie-overview z-50">
             <p className="text-[0.8rem] text-justify font-normal font-montserrat">
-              {fetchDetail.overview}
+              {fetchDetail.data.overview}
             </p>
           </div>
           <div className="movie-release-date z-50 font-montserrat tracking-wider">
-            <span>Release Date : {formatDate(fetchDetail.release_date)}</span>
+            <span>Release Date : {formatDate(fetchDetail.data.release_date)}</span>
           </div>
           <div className="movie-rate z-50 flex gap-2">
             <span>
               <FontAwesomeIcon icon={faStar} style={{ color: "yellow" }} />
             </span>
-            <span>{fetchDetail.vote_average} / 10</span>
+            <span>{fetchDetail.data.vote_average} / 10</span>
           </div>
           <div className="desc-btn z-50">
             <button className="bg-red-600 rounded-full px-3 font-montserrat font-bold py-1 h-[2.5rem] text-[0.8rem] w-[10rem]">
