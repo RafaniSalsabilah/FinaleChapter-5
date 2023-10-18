@@ -1,16 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import { API_ENDPOINTS } from "../utils/api-endpoints";
-import https from '../utils/https'
+import https3 from "../utils/https3";
 
-const fetchDataMoviesPopular = async(page) => {
-    const { data } = await https.get(`${API_ENDPOINTS.POPULAR}?language=en-US&page=${page ? page : 1}`)
-    return data
-}
 
-const useDataMovieQueryPopular = (page) =>{
-    return (
-        useQuery(["user data", page], () => fetchDataMoviesPopular(page))
-        )
+const fetchDataMoviesPopular = async ({ queryKey }) => {
+  const [_key, _params] = queryKey;
+  const { data } = await https3.get(_key, { params: _params });
+  return data;
+};
+
+const useDataMovieQueryPopular = (options) => {
+  return useQuery([API_ENDPOINTS.POPULAR, options], fetchDataMoviesPopular);
 };
 
 export {fetchDataMoviesPopular, useDataMovieQueryPopular}

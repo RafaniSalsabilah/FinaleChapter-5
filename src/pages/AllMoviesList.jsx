@@ -3,24 +3,22 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import RenderAllMovies from "../assets/components/AllMoviesComponents/RenderAllMovies";
-import { useDataMovieQuery } from "../services/get-data-movies";
-import { useDataMovieQuerySearch } from "../services/search-data-movies";
 import SearchIcon from "@rsuite/icons/Search";
+import { useDataMovieQueryPopular } from "../services/get-data-movies-popular";
+import { useGetDataUser } from "../services/auth/get_me_user";
 
 
 const AllMoviesList = () => {
-  const [AllMovieList, setAllMovieList] = useState([]);
+  const [Popular, setPopular] = useState([])
   const [PageNow, setPageNow] = useState(1);
   const [Search, setSearch] = useState([]);
     const navigate = useNavigate()
 
-  const { data: fetchAllMovies } = useDataMovieQuery({
+  const {data : fetchUser} = useGetDataUser({})
+
+  const { data: fetchPopular, isLoading } = useDataMovieQueryPopular({
     page: PageNow,
   });
-
-  const { data : fetchSearch} =  useDataMovieQuerySearch({
-    query : Search
-  })
 
   const handlePage = () => {
     if (PageNow > 1) {
@@ -29,16 +27,27 @@ const AllMoviesList = () => {
   };
 
     const renderAll = () => {
-    return AllMovieList.map((movie, i) => {
+
+      return fetchPopular.data.map((movie, i) => {
       return <RenderAllMovies key={i} allMovie={movie} />;
     });
   };
-
+  
   useEffect(() => {
-    if (fetchAllMovies && fetchSearch) {
-      setAllMovieList(fetchAllMovies.results);
-    }
-  }, [fetchAllMovies, fetchSearch]);
+    if(fetchPopular && fetchUser)
+    setPopular(fetchPopular.data)
+    console.log(Popular, 'popular')
+  }, [fetchPopular, Popular, fetchUser]);
+  
+  if (isLoading) {
+   return (
+     <div className="flex justify-center items-center h-screen w-full">
+       <h1 className="font-black font-montserrat text-[5rem]">
+         Sedang Memuat Data
+       </h1>
+     </div>
+   );
+ }
 
   return (
     <>

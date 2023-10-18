@@ -4,20 +4,34 @@ import { useDataMovieQuerySearch } from '../services/search-data-movies';
 
 const SearchMovieList = () => {
   const { title } = useParams();
-  const { data: fetchSearch } = useDataMovieQuerySearch({ query: title });
+  // const [TitleMovie, setTitleMovie] = useState("Eragon")
+  const { data: fetchSearch, isLoading } = useDataMovieQuerySearch({ 
+    page : 1, 
+    query: title 
+  });
   const [Search, setSearch] = useState([]);
   const [Result, setResult] = useState(true);
 
   useEffect(() => {
     if (fetchSearch) {
-      if (fetchSearch.results.length > 0) {
-        setSearch(fetchSearch.results);
-        console.log(fetchSearch.results);
+      if (fetchSearch.data.length > 0) {
+        setSearch(fetchSearch.data);
+        console.log(fetchSearch.data);
       }else{
         setResult(false)
       }
     }
   }, [fetchSearch]);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <h1 className="font-black font-montserrat text-[5rem]">
+          Sedang Memuat Data
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className='parents'>
