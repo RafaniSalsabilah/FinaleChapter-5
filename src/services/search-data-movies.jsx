@@ -1,4 +1,3 @@
-// import { useQuery } from "@tanstack/react-query"
 import { useQuery } from "@tanstack/react-query"
 import { API_ENDPOINTS } from "../utils/api-endpoints"
 import https3 from "../utils/https3"
