@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../services/auth/post_login_user";
 import { CookieKeys, CookieStorage } from "../../utils/cookies";
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
   const [Password, setPassword] = useState("");
@@ -36,6 +37,13 @@ const LoginPage = () => {
     });
   };
 
+  const showToast = () => {
+    toast.success('Oauth Success!', {
+      position: 'top-center', // You can customize the position
+      autoClose: 10000, // Time in milliseconds to close the toast automatically
+    });
+  };
+
   return (
     <div className="flex flex-col justify-center items-center w-full h-screen" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
       <div className='absolute w-full top-0 left-0 h-full bg-opacity-60 bg-black' style={{ zIndex: 1 }}></div>
@@ -52,7 +60,7 @@ const LoginPage = () => {
             <button onClick={() => {handleLoginUser();}} className="bg-white hover:bg-rose-100 rounded-md w-[10rem] mr-[1rem] font-bold font-poppins tracking-wider focus:outline-none">
               Login
             </button>
-            <GoogleLogin onSuccess={(credentialResponse) => {console.log(credentialResponse);}} onError={() => {console.log("Login Failed");}}/>
+            <GoogleLogin onSuccess={showToast} onError={() => {console.log("Login Failed");}}/>
           </div>
           <div className="flex flex-row justify-center items-center">
             <span>Don't you Have an Account ? </span>
