@@ -31,17 +31,14 @@ const DetailMovies = () => {
   const backgroundStyle = {
     backgroundImage: `url('https://image.tmdb.org/t/p/original/${fetchDetail.data.backdrop_path}')`,
   };
+
   return (
     <>
       <div className="parents">
         <div className="header-section absolute flex justify-between w-full">
-          <Link to={`/home`}>
-            <div className="brand-text flex justify-center items-center">
-              <h1 className="font-black mx-[2.5rem] z-50 outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600">
-                MovieList
-              </h1>
-            </div>
-          </Link>
+          <div className="brand-text flex justify-center items-center mx-6" style={{ zIndex: 999 }}>
+            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
+          </div>
           <div className="search-section z-50 w-[40%] flex justify-center items-center">
             <div className="relative w-full">
               <input
@@ -72,17 +69,14 @@ const DetailMovies = () => {
         </div>
       </div>
 
-      <div
-        className={`body-parents bg-cover relative bg-center bg-no-repeat h-screen overflow-hidden py-1 flex justify-start items-center`}
-        style={backgroundStyle}
-      >
+      <div className={`body-parents bg-cover relative bg-center bg-no-repeat h-screen overflow-hidden py-1 flex justify-start items-center`} style={backgroundStyle}>
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-60 bg-black"></div>
         <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
         <div
           className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-[2.5rem]`}
         >
           <div className="Movie-title z-50">
-            <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem]">
+            <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem] mt-[2rem]">
               {fetchDetail.data.title}
             </h1>
           </div>

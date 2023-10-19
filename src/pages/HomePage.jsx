@@ -49,9 +49,7 @@ const HomePage = () => {
       <div className="parents">
         <div className="header-section absolute flex justify-between z-50 w-full">
           <div className="brand-text flex justify-center items-center mx-6">
-            <h1 className="font-black outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600 ml-2">
-              MovieList
-            </h1>
+            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
           </div>
           <div className="search-section w-[40%] flex justify-center items-center">
             <div className="relative w-full">

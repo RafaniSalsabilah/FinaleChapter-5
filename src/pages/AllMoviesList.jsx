@@ -53,12 +53,8 @@ const AllMoviesList = () => {
     <>
     <div className="parents">
          <div className="header-section flex justify-between w-full">
-          <div className="brand-text flex justify-center items-center">
-          <Link to={'/'}>
-            <h1 className="font-black outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600 ml-2 ">
-              MovieList
-            </h1>
-          </Link>
+          <div className="brand-text flex justify-center items-center mx-6">
+            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
           </div>
           <div className="search-section w-[40%] flex justify-center items-center">
             <div className="relative w-full">
