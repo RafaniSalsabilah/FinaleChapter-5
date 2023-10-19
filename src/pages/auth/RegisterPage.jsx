@@ -12,9 +12,9 @@ const RegisterPage = () => {
   const { mutate: regiterUser, isSuccess } = useCreateUser();
   const navigate = useNavigate()
 
-  if (isSuccess) {
-    navigate("/");
-  }
+  // if (isSuccess) {
+  //   navigate("/");
+  // }
 
   const handleInput = (e) => {
     if (e) {
