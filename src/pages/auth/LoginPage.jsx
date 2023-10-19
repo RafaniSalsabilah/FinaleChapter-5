@@ -3,7 +3,6 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../services/auth/post_login_user";
-import { CookieKeys, CookieStorage } from "../../utils/cookies";
 import { toast } from 'react-toastify';
 
 const LoginPage = () => {
@@ -11,7 +10,7 @@ const LoginPage = () => {
   const [Email, setEmail] = useState("");
   const backgroundImageUrl = require('../../assets/img/movie-bg.jpg');
 
-  const { mutate: loginUser, isSuccess, data: dataUser } = useLogin();
+  const { mutate: loginUser, data: dataUser} = useLogin();
   const navigate = useNavigate();
   const handleInput = (e) => {
     if (e) {
@@ -24,11 +23,6 @@ const LoginPage = () => {
     }
   };
 
-  if (isSuccess) {
-    CookieStorage.set(CookieKeys.AuthToken, dataUser.data.data.token);
-    // console.log(dataUser.data.data.token);
-    navigate("/home");
-  }
 
   const handleLoginUser = () => {
     loginUser({
