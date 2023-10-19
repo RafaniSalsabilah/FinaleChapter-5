@@ -10,7 +10,7 @@ const LoginPage = () => {
   const [Email, setEmail] = useState("");
   const backgroundImageUrl = require('../../assets/img/movie-bg.jpg');
 
-  const { mutate: loginUser, data: dataUser} = useLogin();
+  const { mutate: loginUser} = useLogin();
   const navigate = useNavigate();
   const handleInput = (e) => {
     if (e) {
