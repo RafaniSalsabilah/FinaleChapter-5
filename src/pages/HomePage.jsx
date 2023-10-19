@@ -70,17 +70,6 @@ const HomePage = () => {
             </div>
           </div>
           <div className="head-btn flex gap-4 justify-center items-center mx-6">
-            {/* <button
-              onClick={() => {
-                navigate("/");
-              }}
-              className="bg-transparent py-0.5 px-1 font-normal text-[1rem] border-2 text-red-600 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]"
-            >
-              Login
-            </button>
-            <button className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]">
-              Register
-            </button> */}
             <button
               onClick={() => {
                 CookieStorage.remove(CookieKeys.AuthToken);

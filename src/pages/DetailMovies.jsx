@@ -1,12 +1,16 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDataMovieQueryDetail } from "../services/get-data-movies-detail";
 import SearchIcon from "@rsuite/icons/Search";
 import PlayOutlineIcon from "@rsuite/icons/PlayOutline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { useState } from "react";
+import { CookieKeys, CookieStorage } from "../utils/cookies";
 
 const DetailMovies = () => {
   const { id } = useParams();
+  const [Search, setSearch] = useState([])
+  const navigate = useNavigate()
 
   const { data: fetchDetail } = useDataMovieQueryDetail(id);
 
@@ -33,7 +37,7 @@ const DetailMovies = () => {
         <div className="header-section absolute flex justify-between w-full">
           <Link to={`/`}>
             <div className="brand-text flex justify-center items-center">
-              <h1 className="font-black z-50 outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600 ml-2">
+              <h1 className="font-black mx-[2.5rem] z-50 outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600">
                 MovieList
               </h1>
             </div>
@@ -41,21 +45,28 @@ const DetailMovies = () => {
           <div className="search-section z-50 w-[40%] flex justify-center items-center">
             <div className="relative w-full">
               <input
-                value={`${fetchDetail.data.title}`}
+                 onChange={(e) => {
+                  setSearch(e.target.value);
+                }}
                 className="border-2 w-full bg-transparent font-bold font-montserrat text-white border-red-600 rounded-full px-4 py-2 outline-red-600 focus:border-red-600 focus:outline-none"
                 placeholder="what do you want to watch?"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex justify-center items-center">
-                <SearchIcon className="text-[1.5rem] hover:scale-[110%] text-slate-300 mx-2" />{" "}
+              <Link to={`/search/${Search}`}>
+                <SearchIcon className="text-[1.5rem] hover:scale-[110%] text-slate-300 mx-2" />
+              </Link>
               </div>
             </div>
           </div>
-          <div className="head-btn z-50 flex gap-4 justify-center items-center mr-2">
-            <button className="bg-transparent py-0.5 px-1 font-normal text-[1rem] border-2 text-red-600 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]">
-              Login
-            </button>
-            <button className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]">
-              Register
+          <div className="head-btn z-50 flex gap-4 justify-center items-center mx-[2.5rem]">
+            <button
+              onClick={() => {
+                CookieStorage.remove(CookieKeys.AuthToken);
+                navigate("/");
+              }}
+              className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]"
+            >
+              Logout
             </button>
           </div>
         </div>
@@ -68,13 +79,12 @@ const DetailMovies = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-60 bg-black"></div>
         <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
         <div
-          className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-4`}
+          className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-[2.5rem]`}
         >
           <div className="Movie-title z-50">
             <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem]">
               {fetchDetail.data.title}
             </h1>
-            {/* <h1>{id}</h1> */}
           </div>
           <div className="Genre-list z-50 flex gap-4">
             {fetchDetail.data.genres
