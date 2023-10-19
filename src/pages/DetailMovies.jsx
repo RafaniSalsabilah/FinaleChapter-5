@@ -35,7 +35,7 @@ const DetailMovies = () => {
     <>
       <div className="parents">
         <div className="header-section absolute flex justify-between w-full">
-          <Link to={`/`}>
+          <Link to={`/login`}>
             <div className="brand-text flex justify-center items-center">
               <h1 className="font-black mx-[2.5rem] z-50 outline-red-600 tracking-wider font-poppins text-[2.5rem] text-red-600">
                 MovieList
