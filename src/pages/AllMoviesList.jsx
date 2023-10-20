@@ -33,8 +33,8 @@ const AllMoviesList = () => {
   };
 
   useEffect(() => {
-    if (fetchPopular && fetchUser) setPopular(fetchPopular.data);
-    console.log(Popular, "popular");
+    if (fetchPopular && fetchUser) 
+    setPopular(fetchPopular.data);
   }, [fetchPopular, Popular, fetchUser]);
 
   if (isLoading) {

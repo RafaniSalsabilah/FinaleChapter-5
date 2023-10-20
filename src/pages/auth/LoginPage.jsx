@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 const LoginPage = () => {
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState("");
-  const backgroundImageUrl = require('../../assets/img/movie-bg.jpg');
+  const backgroundImageUrl = require('../../assets/img/poster-bg.jpg');
 
   const { mutate: loginUser} = useLogin();
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center w-full h-screen" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
+    <div className="flex flex-col justify-center items-center bg-cover bg-center w-full h-screen" style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
       <div className='absolute w-full top-0 left-0 h-full bg-opacity-60 bg-black' style={{ zIndex: 1 }}></div>
       <div className='absolute w-full bottom-0 left-0 h-15 bg-gradient-to-t from-black to-transparent' style={{ zIndex: 2 }}></div>
       <div className="rounded-md bg-gradient-to-r from-rose-600 to-red-400 h-[18.5rem] w-[25rem] flex flex-col items-center shadow-lg shadow-slate-600" style={{ zIndex: 3 }}>

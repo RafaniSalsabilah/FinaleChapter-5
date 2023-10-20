@@ -6,7 +6,7 @@ const RegisterPage = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [Email, setEmail] = useState("");
-  const backgroundImageUrl = require("../../assets/img/movie-bg.jpg");
+  const backgroundImageUrl = require("../../assets/img/poster-bg.jpg");
 
   const { mutate: regiterUser } = useCreateUser();
 
@@ -35,7 +35,7 @@ const RegisterPage = () => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center w-full h-screen"
+      className="flex flex-col justify-center items-center w-full h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImageUrl})` }}
     >
       <div

@@ -132,15 +132,15 @@ const HomePage = () => {
 
         <div className="pop-movie-list py-[1.5rem]">
           <div className="pop-text px-6 flex justify-between h-[3rem]">
-            <h1 className="font-black font-poppins font-bold tracking-wide text-[2rem]">
+            <h1 className="font-black font-poppins tracking-wide text-[2rem]">
               Popular Movie
             </h1>
             <Link to={"/movie-list"}>
               <div className="flex justify-center items-center h-[100%]">
-                <p className="text-red-600 font-semibold font-montserrat">
+                <p className="text-red-600 font-semibold font-montserrat hover:text-red-700">
                   See All Movie
                 </p>
-                <i className="fas fa-arrow-right text-red-600 ml-[.5rem]"></i>
+                <i className="fas fa-arrow-right text-red-600 ml-[.5rem] hover:text-red-700"></i>
               </div>
             </Link>
           </div>
@@ -150,7 +150,7 @@ const HomePage = () => {
         </div>
 
         <div className="footer">
-          <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-red-400 to-red-600 w-full h-[4rem] flex justify-center items-center text-white font-semibold">
+          <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-red-400 to-red-600 w-full h-[3rem] flex justify-center items-center text-white font-semibold">
           <AiOutlineCopyrightCircle className="mr-[.5rem] mt-[.2rem]"/>
           <span>Credit by Kevin Ginting, Rafani Salsabilah, Dwi Agus S.</span>
           </div>
