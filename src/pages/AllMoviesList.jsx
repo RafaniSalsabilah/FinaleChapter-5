@@ -86,10 +86,10 @@ const AllMoviesList = () => {
         </div>
 
         <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center bg-slate-600 shadow-slate-600 w-[10.5%] rounded-full h-[2.7rem] my-3 shadow-md ">
-            <div className="flex gap-7">
+          <div className="flex justify-center items-center bg-red-600 shadow-red-600 w-[10.5%] rounded-full h-[2.5rem] my-3 shadow-md ">
+            <div className="flex gap-7 text-white">
               <button onClick={handlePage}>
-                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-green-600"></i>
+                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-black"></i>
               </button>
               <p className="font-montserrat font-extrabold text-[1.2rem]">
                 {PageNow}
@@ -99,7 +99,7 @@ const AllMoviesList = () => {
                   setPageNow(PageNow + 1);
                 }}
               >
-                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-green-600"></i>
+                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-black"></i>
               </button>
             </div>
           </div>
@@ -110,10 +110,10 @@ const AllMoviesList = () => {
         </div>
 
         <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center bg-slate-600 shadow-md shadow-slate-600 w-[10.5%] rounded-full h-[2.7rem] mb-4 my-3 ">
-            <div className="flex gap-8">
+          <div className="flex justify-center items-center bg-red-600 shadow-md shadow-red-600 w-[10.5%] rounded-full h-[2.5rem] mb-4 my-3 ">
+            <div className="flex gap-7 text-white">
               <button onClick={handlePage}>
-                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-green-600"></i>
+                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-black"></i>
               </button>
               <p className="font-montserrat font-extrabold text-[1.2rem]">
                 {PageNow}
@@ -123,7 +123,7 @@ const AllMoviesList = () => {
                   setPageNow(PageNow + 1);
                 }}
               >
-                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-green-600"></i>
+                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-black"></i>
               </button>
             </div>
           </div>

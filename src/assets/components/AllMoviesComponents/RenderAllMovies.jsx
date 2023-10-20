@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const RenderAllMovies = (props) => {
   return (
-    <div className="bg-slate-600 hover:scale-[105%] rounded-md">
+    <div className="bg-red-600 hover:scale-[105%] rounded-md">
       <Link to={`/${props.allMovie.id}`}>
         <img
           className="poster-section min-h-[28rem] w-[17.5rem]"
@@ -11,7 +11,7 @@ const RenderAllMovies = (props) => {
           alt="poster_path"
         />
       </Link>
-      <div className="movie-title flex justify-center items-center font-extrabold font-poppins h-[4rem] max-w-[17.5rem] text-center text-[15px]">
+      <div className="movie-title flex justify-center items-center font-extrabold font-poppins h-[4rem] max-w-[17.5rem] text-white text-center text-[15px]">
         <h1 className="mx-2">{props.allMovie.title}</h1>
       </div>
     </div>
