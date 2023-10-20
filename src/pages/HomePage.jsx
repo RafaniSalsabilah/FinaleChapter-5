@@ -47,7 +47,7 @@ const HomePage = () => {
     <>
       <div className="parents">
         <div className="header-section absolute flex justify-between z-50 w-full">
-          <div className="brand-text flex justify-center items-center mx-6">
+          <div className="brand-text flex justify-center items-center mx-[2rem]">
             <div className="text-red-600 text-[2.5rem] font-bold">
               <a href="/home">Movielist</a>
             </div>
