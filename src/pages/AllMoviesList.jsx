@@ -8,14 +8,13 @@ import { useDataMovieQueryPopular } from "../services/get-data-movies-popular";
 import { useGetDataUser } from "../services/auth/get_me_user";
 import { CookieKeys, CookieStorage } from "../utils/cookies";
 
-
 const AllMoviesList = () => {
-  const [Popular, setPopular] = useState([])
+  const [Popular, setPopular] = useState([]);
   const [PageNow, setPageNow] = useState(1);
   const [Search, setSearch] = useState([]);
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const {data : fetchUser} = useGetDataUser({})
+  const { data: fetchUser } = useGetDataUser({});
 
   const { data: fetchPopular, isLoading } = useDataMovieQueryPopular({
     page: PageNow,
@@ -27,35 +26,35 @@ const AllMoviesList = () => {
     }
   };
 
-    const renderAll = () => {
-
-      return fetchPopular.data.map((movie, i) => {
+  const renderAll = () => {
+    return fetchPopular.data.map((movie, i) => {
       return <RenderAllMovies key={i} allMovie={movie} />;
     });
   };
-  
+
   useEffect(() => {
-    if(fetchPopular && fetchUser)
-    setPopular(fetchPopular.data)
-    console.log(Popular, 'popular')
+    if (fetchPopular && fetchUser) setPopular(fetchPopular.data);
+    console.log(Popular, "popular");
   }, [fetchPopular, Popular, fetchUser]);
-  
+
   if (isLoading) {
-   return (
-     <div className="flex justify-center items-center h-screen w-full">
-       <h1 className="font-black font-montserrat text-[5rem]">
-         Sedang Memuat Data
-       </h1>
-     </div>
-   );
- }
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <h1 className="font-black font-montserrat text-[5rem]">
+          Sedang Memuat Data
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <>
-    <div className="parents">
-         <div className="header-section flex justify-between w-full">
+      <div className="parents">
+        <div className="header-section flex justify-between w-full">
           <div className="brand-text flex justify-center items-center mx-6">
-            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
+            <div className="text-red-600 text-[2.5rem] font-bold">
+              <a href="/home">Movielist</a>
+            </div>
           </div>
           <div className="search-section w-[40%] flex justify-center items-center">
             <div className="relative w-full">
@@ -67,9 +66,9 @@ const AllMoviesList = () => {
                 placeholder="what do you want to watch?"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex justify-center items-center">
-              <Link to={`/search/${Search}`}>
-                <SearchIcon className="text-[1.5rem] hover:scale-[110%] text-black mx-2" />
-              </Link>
+                <Link to={`/search/${Search}`}>
+                  <SearchIcon className="text-[1.5rem] hover:scale-[110%] text-black mx-2" />
+                </Link>
               </div>
             </div>
           </div>
@@ -86,50 +85,50 @@ const AllMoviesList = () => {
           </div>
         </div>
 
-     <div className="flex justify-center items-center">
-     <div className="flex justify-center items-center bg-slate-600 w-[10%] rounded-full h-[3rem] my-2 shadow-md shadow-slate-600">
-        <div className="flex gap-10">
-          <button onClick={handlePage}>
-            <i className="fas fa-arrow-left text-[1.5rem] text-white hover:text-green-600"></i>
-          </button>
-          <p className="font-montserrat font-extrabold text-[1.2rem]">
-            {PageNow}
-          </p>
-          <button
-            onClick={() => {
-              setPageNow(PageNow + 1);
-            }}
-          >
-            <i className="fas fa-arrow-right text-[1.5rem] text-white hover:text-green-600"></i>
-          </button>
+        <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center bg-slate-600 shadow-slate-600 w-[10.5%] rounded-full h-[2.7rem] my-3 shadow-md ">
+            <div className="flex gap-7">
+              <button onClick={handlePage}>
+                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-green-600"></i>
+              </button>
+              <p className="font-montserrat font-extrabold text-[1.2rem]">
+                {PageNow}
+              </p>
+              <button
+                onClick={() => {
+                  setPageNow(PageNow + 1);
+                }}
+              >
+                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-green-600"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="show-all-movies flex flex-wrap justify-between items-center gap-5 py-[1rem] px-[1.7rem]">
+          {renderAll()}
+        </div>
+
+        <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center bg-slate-600 shadow-md shadow-slate-600 w-[10.5%] rounded-full h-[2.7rem] mb-4 my-3 ">
+            <div className="flex gap-8">
+              <button onClick={handlePage}>
+                <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-green-600"></i>
+              </button>
+              <p className="font-montserrat font-extrabold text-[1.2rem]">
+                {PageNow}
+              </p>
+              <button
+                onClick={() => {
+                  setPageNow(PageNow + 1);
+                }}
+              >
+                <i className="fas fa-arrow-right text-[1.3rem] text-white hover:text-green-600"></i>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-     
-     <div className="show-all-movies flex flex-wrap gap-4 py-[1rem] px-[1.7rem]">
-        {renderAll()}
-     </div>
-    
-    <div className="flex justify-center items-center">
-     <div className="flex justify-center items-center bg-slate-600 shadow-md shadow-slate-600 w-[10%] rounded-full h-[3rem] mb-4">
-        <div className="flex gap-10">
-          <button onClick={handlePage}>
-            <i className="fas fa-arrow-left text-[1.5rem] text-white hover:text-green-600"></i>
-          </button>
-          <p className="font-montserrat font-extrabold text-[1.2rem]">
-            {PageNow}
-          </p>
-          <button
-            onClick={() => {
-              setPageNow(PageNow + 1);
-            }}
-          >
-            <i className="fas fa-arrow-right text-[1.5rem] text-white hover:text-green-600"></i>
-          </button>
-        </div>
-      </div>
-      </div>
-     </div>
     </>
   );
 };

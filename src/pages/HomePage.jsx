@@ -14,8 +14,8 @@ import { useGetDataUser } from "../services/auth/get_me_user";
 const HomePage = () => {
   const navigate = useNavigate();
   const [Search, setSearch] = useState("");
-  const [Popular, setPopular] = useState([])
-  const [User, setUser] = useState([])
+  const [Popular, setPopular] = useState([]);
+  const [User, setUser] = useState([]);
 
   const { data: fetchUser } = useGetDataUser({});
   const { data: fetchPopular, isLoading } = useDataMovieQueryPopular({});
@@ -27,11 +27,10 @@ const HomePage = () => {
 
   useEffect(() => {
     if (fetchPopular && fetchUser) {
-      setPopular(fetchPopular.data)
-      setUser(fetchUser)
+      setPopular(fetchPopular.data);
+      setUser(fetchUser);
     }
-  }, [fetchPopular, fetchUser, User])
-  
+  }, [fetchPopular, fetchUser, User]);
 
   SwiperCore.use([Pagination, Autoplay]);
   if (isLoading) {
@@ -49,7 +48,9 @@ const HomePage = () => {
       <div className="parents">
         <div className="header-section absolute flex justify-between z-50 w-full">
           <div className="brand-text flex justify-center items-center mx-6">
-            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
+            <div className="text-red-600 text-[2.5rem] font-bold">
+              <a href="/home">Movielist</a>
+            </div>
           </div>
           <div className="search-section w-[40%] flex justify-center items-center">
             <div className="relative w-full">
@@ -96,17 +97,29 @@ const HomePage = () => {
             return (
               <SwiperSlide key={i}>
                 <div
-                  className={`body-parents bg-cover relative bg-center bg-no-repeat h-screen overflow-hidden py-1 z-50 flex justify-start items-center`}
+                  className={
+                    "w-full relative bg-center bg-cover bg-no-repeat min-h-screen"
+                  }
                   style={backgroundStyle}
                 >
                   <div className="absolute top-0 left-0 w-full h-full bg-opacity-60 bg-black -z-50"></div>
                   <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
-                  <div
+                  <div className="flex flex-col justify-center absolute inset-0 w-1/2 gap-4 mx-[1.5rem]">
+                    <h1 className="text-white font-bold text-[4rem]">
+                      {movie.title}
+                    </h1>
+                    <p className="text-white">{movie.overview}</p>
+                    <button className="bg-red-600 text-white font-semibold rounded-full px-[1rem] py-[.5rem] w-fit flex">
+                      <PlayOutlineIcon className="mt-[.3rem] mr-[.5rem]" />{" "}
+                      Watch Trailer
+                    </button>
+                  </div>
+                  {/* <div
                     key={i}
                     className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-4`}
                   >
                     <div className="Movie-title">
-                      <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem]">
+                      <h1 className="font-extrabold  font-montserrat text-[4rem] leading-[4.5rem]">
                         {movie.title}
                       </h1>
                     </div>
@@ -121,14 +134,14 @@ const HomePage = () => {
                         WATCH TRAILER
                       </button>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </SwiperSlide>
             );
           })}
         </Swiper>
 
-        <div className="pop-movie-list py-2">
+        <div className="pop-movie-list mx-0 py-2">
           <div className="pop-text px-6 flex justify-between h-[3rem]">
             <h1 className="font-black font-poppins tracking-wide text-[2rem]">
               Popular Movie
@@ -142,7 +155,7 @@ const HomePage = () => {
               </div>
             </Link>
           </div>
-          <div className="flex flex-wrap px-[1.7rem] gap-4 py-[2rem]">
+          <div className="flex flex-wrap justify-between items-center px-[1.7rem] gap-4 py-[2rem]">
             {renderPopularMovieList()}
           </div>
         </div>
