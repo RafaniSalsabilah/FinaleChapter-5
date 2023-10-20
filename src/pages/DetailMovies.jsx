@@ -35,8 +35,8 @@ const DetailMovies = () => {
   return (
     <>
       <div className="parents">
-        <div className="header-section absolute flex justify-between w-full">
-          <div className="brand-text flex justify-center items-center mx-6" style={{ zIndex: 999 }}>
+        <div className="header-section absolute flex justify-between w-full mt-[.5rem]">
+          <div className="brand-text flex justify-center items-center mx-[1rem]" style={{ zIndex: 999 }}>
             <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
           </div>
           <div className="search-section z-50 w-[40%] flex justify-center items-center">
@@ -46,7 +46,7 @@ const DetailMovies = () => {
                   setSearch(e.target.value);
                 }}
                 className="border-2 w-full bg-transparent font-bold font-montserrat text-white border-red-600 rounded-full px-4 py-2 outline-red-600 focus:border-red-600 focus:outline-none"
-                placeholder="what do you want to watch?"
+                placeholder="What do you want to watch?"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex justify-center items-center">
               <Link to={`/search/${Search}`}>
@@ -61,7 +61,7 @@ const DetailMovies = () => {
                 CookieStorage.remove(CookieKeys.AuthToken);
                 navigate("/");
               }}
-              className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]"
+              className="bg-red-500 text-white font-semibold text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem] hover:bg-red-600 border-none"
             >
               Logout
             </button>
@@ -73,10 +73,10 @@ const DetailMovies = () => {
         <div className="absolute top-0 left-0 w-full h-full bg-opacity-60 bg-black"></div>
         <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
         <div
-          className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-[2.5rem]`}
+          className={`desc-section flex flex-col gap-4 w-[60%] text-white mx-[1rem]`}
         >
           <div className="Movie-title z-50">
-            <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem] mt-[2rem]">
+            <h1 className="font-extrabold font-montserrat text-[3.5rem] leading-[4.5rem] mt-[2rem]">
               {fetchDetail.data.title}
             </h1>
           </div>
@@ -105,10 +105,10 @@ const DetailMovies = () => {
             <span>{fetchDetail.data.vote_average} / 10</span>
           </div>
           <div className="desc-btn z-50">
-            <button className="bg-red-600 rounded-full px-3 font-montserrat font-bold py-1 h-[2.5rem] text-[0.8rem] w-[10rem]">
+            <div className="bg-red-500 rounded-full px-3 font-montserrat font-bold pt-[.7rem] h-[2.5rem] text-[0.8rem] w-[10.5rem] hover:bg-red-600">
               <PlayOutlineIcon className="text-[1rem] mx-[0.3rem] mb-[0.2rem]" />
               WATCH TRAILER
-            </button>
+            </div>
           </div>
         </div>
       </div>

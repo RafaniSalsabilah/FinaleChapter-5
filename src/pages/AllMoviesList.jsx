@@ -49,9 +49,9 @@ const AllMoviesList = () => {
 
   return (
     <>
-      <div className="parents">
-        <div className="header-section flex justify-between w-full">
-          <div className="brand-text flex justify-center items-center mx-6">
+      <div className="parents bg-gradient-to-r from-gray-500 to-gray-700">
+        <div className="header-section flex justify-between w-full pt-[.5rem]">
+          <div className="brand-text flex justify-center items-center mx-[1rem]">
             <div className="text-red-600 text-[2.5rem] font-bold">
               <a href="/home">Movielist</a>
             </div>
@@ -63,7 +63,7 @@ const AllMoviesList = () => {
                   setSearch(e.target.value);
                 }}
                 className="border-2 w-full bg-transparent font-bold font-montserrat text-black border-red-600 rounded-full px-4 py-2 outline-red-600 focus:border-red-600 focus:outline-none"
-                placeholder="what do you want to watch?"
+                placeholder="What do you want to watch?"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex justify-center items-center">
                 <Link to={`/search/${Search}`}>
@@ -78,7 +78,7 @@ const AllMoviesList = () => {
                 CookieStorage.remove(CookieKeys.AuthToken);
                 navigate("/");
               }}
-              className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]"
+              className="bg-red-500 text-white font-semibold text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem] hover:bg-red-600 border-none"
             >
               Logout
             </button>
@@ -86,7 +86,7 @@ const AllMoviesList = () => {
         </div>
 
         <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center bg-red-600 shadow-red-600 w-[10.5%] rounded-full h-[2.5rem] my-3 shadow-md ">
+          <div className="flex justify-center items-center bg-red-500 w-[10.5%] rounded-full h-[2.5rem] my-3 shadow-md hover:bg-red-600">
             <div className="flex gap-7 text-white">
               <button onClick={handlePage}>
                 <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-black"></i>
@@ -110,7 +110,7 @@ const AllMoviesList = () => {
         </div>
 
         <div className="flex justify-center items-center">
-          <div className="flex justify-center items-center bg-red-600 shadow-md shadow-red-600 w-[10.5%] rounded-full h-[2.5rem] mb-4 my-3 ">
+          <div className="flex justify-center items-center bg-red-500 w-[10.5%] rounded-full h-[2.5rem] mb-4 my-3 hover:bg-red-600">
             <div className="flex gap-7 text-white">
               <button onClick={handlePage}>
                 <i className="fas fa-arrow-left text-[1.3rem] text-white hover:text-black"></i>

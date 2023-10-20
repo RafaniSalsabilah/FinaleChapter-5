@@ -82,7 +82,7 @@ const RegisterPage = () => {
               onClick={() => {
                 registerUser();
               }}
-              className="bg-white hover:bg-rose-100 rounded-md w-[10rem] mr-[1rem] h-[2.5rem] font-bold font-poppins tracking-wider focus:outline-none"
+              className="bg-white hover:bg-rose-400 rounded-md w-[10rem] mr-[1rem] h-[2.5rem] font-bold font-poppins tracking-wider focus:outline-none"
             >
               Register
             </button>

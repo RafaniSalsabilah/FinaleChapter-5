@@ -10,6 +10,7 @@ import { useDataMovieQueryPopular } from "../services/get-data-movies-popular";
 import { Link, useNavigate } from "react-router-dom";
 import { CookieKeys, CookieStorage } from "../utils/cookies";
 import { useGetDataUser } from "../services/auth/get_me_user";
+import { AiOutlineCopyrightCircle } from "react-icons/ai"
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -46,8 +47,8 @@ const HomePage = () => {
   return (
     <>
       <div className="parents">
-        <div className="header-section absolute flex justify-between z-50 w-full">
-          <div className="brand-text flex justify-center items-center mx-[2rem]">
+        <div className="header-section absolute flex justify-between z-50 w-full mt-[.5rem]">
+          <div className="brand-text flex justify-center items-center mx-[1rem]">
             <div className="text-red-600 text-[2.5rem] font-bold">
               <a href="/home">Movielist</a>
             </div>
@@ -59,7 +60,7 @@ const HomePage = () => {
                   setSearch(e.target.value);
                 }}
                 className="border-2 w-full bg-transparent font-bold font-montserrat text-white border-red-600 rounded-full px-4 py-2 outline-red-600 focus:border-red-600 focus:outline-none"
-                placeholder="what do you want to watch?"
+                placeholder="What do you want to watch?"
               />
               <div className="absolute right-2 top-1/2 transform -translate-y-1/2 flex justify-center items-center">
                 <Link to={`/search/${Search}`}>
@@ -74,7 +75,7 @@ const HomePage = () => {
                 CookieStorage.remove(CookieKeys.AuthToken);
                 navigate("/");
               }}
-              className="bg-red-600 text-white py-0.5 px-1 font-normal text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem]"
+              className="bg-red-500 text-white font-semibold text-[1rem] border-2 border-red-600 outline-red-600 rounded-full w-[6rem] h-[2.5rem] hover:bg-red-600 border-none"
             >
               Logout
             </button>
@@ -90,7 +91,7 @@ const HomePage = () => {
           autoplay={{ delay: 2000 }}
           pagination={{ clickable: true }}
         >
-          {Popular.slice(0, 3).map((movie, i) => {
+          {Popular.slice(0, 5).map((movie, i) => {
             const backgroundStyle = {
               backgroundImage: `url('https://image.tmdb.org/t/p/original/${movie.backdrop_path}')`,
             };
@@ -104,23 +105,23 @@ const HomePage = () => {
                   <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-black to-transparent"></div>
                   <div
                     key={i}
-                    className={`desc-section flex flex-col gap-4 w-[50%] text-white mx-4`}
+                    className={`desc-section flex flex-col gap-4 w-[60%] text-white mx-4`}
                   >
                     <div className="Movie-title">
-                      <h1 className="font-extrabold font-montserrat text-[4rem] leading-[4.5rem]">
+                      <h1 className="font-extrabold font-montserrat text-[3.5rem] leading-[4.5rem]">
                         {movie.title}
                       </h1>
                     </div>
                     <div className="Movie-overview">
-                      <p className="text-[0.8rem] text-justify font-normal font-montserrat">
+                      <p className="text-[1rem] text-justify font-normal font-montserrat">
                         {movie.overview}
                       </p>
                     </div>
                     <div className="desc-btn">
-                      <button className="bg-red-600 rounded-full px-3 font-montserrat font-bold py-1 h-[2.5rem] text-[0.8rem] w-[10rem]">
+                      <div className="bg-red-500 rounded-full px-3 font-montserrat font-bold pt-[.7rem] h-[2.5rem] text-[0.8rem] w-[10.5rem] hover-red-600">
                         <PlayOutlineIcon className="text-[1rem] mx-[0.3rem] mb-[0.2rem]" />
                         WATCH TRAILER
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -129,22 +130,29 @@ const HomePage = () => {
           })}
         </Swiper>
 
-        <div className="pop-movie-list py-2">
+        <div className="pop-movie-list py-[1.5rem]">
           <div className="pop-text px-6 flex justify-between h-[3rem]">
-            <h1 className="font-black font-poppins tracking-wide text-[2rem]">
+            <h1 className="font-black font-poppins font-bold tracking-wide text-[2rem]">
               Popular Movie
             </h1>
             <Link to={"/movie-list"}>
               <div className="flex justify-center items-center h-[100%]">
-                <p className="text-red-600 font-normal font-montserrat">
+                <p className="text-red-600 font-semibold font-montserrat">
                   See All Movie
                 </p>
-                <i className="fas fa-arrow-right text-red-600 ml-1"></i>
+                <i className="fas fa-arrow-right text-red-600 ml-[.5rem]"></i>
               </div>
             </Link>
           </div>
-          <div className="flex flex-wrap justify-between items-center px-[1.7rem] gap-4 py-[2rem]">
+          <div className="flex flex-wrap justify-between items-center px-[1.7rem] gap-3 py-[1rem]">
             {renderPopularMovieList()}
+          </div>
+        </div>
+
+        <div className="footer">
+          <div className="bg-[conic-gradient(at_top_right,_var(--tw-gradient-stops))] from-red-400 to-red-600 w-full h-[4rem] flex justify-center items-center text-white font-semibold">
+          <AiOutlineCopyrightCircle className="mr-[.5rem] mt-[.2rem]"/>
+          <span>Credit by Kevin Ginting, Rafani Salsabilah, Dwi Agus S.</span>
           </div>
         </div>
       </div>

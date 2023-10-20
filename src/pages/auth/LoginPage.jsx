@@ -51,7 +51,7 @@ const LoginPage = () => {
         <div className="btn-section">
           {/* <Link to={'/home'}> */}
           <div className="flex flex-row w-[20rem] my-[1rem]">
-            <button onClick={() => {handleLoginUser();}} className="bg-white hover:bg-rose-100 rounded-md w-[10rem] mr-[1rem] font-bold font-poppins tracking-wider focus:outline-none">
+            <button onClick={() => {handleLoginUser();}} className="bg-white hover:bg-rose-400 rounded-md w-[10rem] mr-[1rem] font-bold font-poppins tracking-wider focus:outline-none">
               Login
             </button>
             <GoogleLogin onSuccess={showToast} onError={() => {console.log("Login Failed");}}/>
