@@ -118,7 +118,7 @@ const HomePage = () => {
                       </p>
                     </div>
                     <div className="desc-btn">
-                      <div className="bg-red-500 rounded-full px-3 font-montserrat font-bold pt-[.7rem] h-[2.5rem] text-[0.8rem] w-[10.5rem] hover-red-600">
+                      <div className="bg-red-500 rounded-full px-3 font-montserrat font-bold pt-[.7rem] h-[2.5rem] text-[0.8rem] w-[10.5rem] hover:bg-red-600">
                         <PlayOutlineIcon className="text-[1rem] mx-[0.3rem] mb-[0.2rem]" />
                         WATCH TRAILER
                       </div>
@@ -155,6 +155,7 @@ const HomePage = () => {
           <span>Credit by Kevin Ginting, Rafani Salsabilah, Dwi Agus S.</span>
           </div>
         </div>
+        
       </div>
     </>
   );

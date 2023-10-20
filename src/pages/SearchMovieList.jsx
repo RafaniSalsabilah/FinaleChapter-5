@@ -41,10 +41,10 @@ const SearchMovieList = () => {
         </h1>
         <Link to={"/movie-list"}>
           <div className="flex justify-center items-center h-[100%]">
-            <p className="text-red-600 font-semibold font-montserrat mt-[1rem]">
+            <p className="text-red-600 font-semibold font-montserrat mt-[1rem] hover:text-red-700">
               See All Movie
             </p>
-            <i className="fas fa-arrow-right text-red-600 ml-[.5rem] mt-[1rem]"></i>
+            <i className="fas fa-arrow-right text-red-600 ml-[.5rem] mt-[1rem] hover:text-red-700"></i>
           </div>
         </Link>
       </div>
@@ -52,7 +52,7 @@ const SearchMovieList = () => {
         <div className="flex flex-wrap justify-between item-center gap-5 px-[1.4rem] my-[1rem]">
           {Search.map((movie) => {
             return (
-                <div className="bg-red-500 hover:scale-[105%] hover:bg-red-600 rounded-md">
+                <div className="bg-red-500 hover:scale-[105%] hover:bg-red-600 rounded-md mt-[.5rem]">
                 <Link to={`/${movie.id}`}>
                   <img
                     className="poster-section min-h-[28rem] w-[17.5rem]"
@@ -74,6 +74,12 @@ const SearchMovieList = () => {
           </h1>
         </div>
       )}
+
+        <div className="footer">
+          <div className="bg-gradient-to-r from-gray-500 to-gray-700 w-full h-[3rem] flex justify-center items-center text-gray-600 font-semibold mt-[]">
+          <span>.</span>
+          </div>
+        </div>
     </div>
   );
 };

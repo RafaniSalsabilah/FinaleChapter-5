@@ -4,6 +4,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 import { CookieKeys, CookieStorage } from "../../../utils/cookies";
+import GoogleLogo from "../../img/google-logo.png";
 
 function GoogleLogin({ buttonText }) {
   const [LoggedIn, setLoggedIn] = useState(false);
@@ -53,9 +54,12 @@ function GoogleLogin({ buttonText }) {
       {LoggedIn ? (
             window.location.href = "/home"
       ) : (
-        <Button variant="primary" onClick={() => loginWithGoogle()}>
-          {buttonText}
-        </Button>
+        <div className="flex flex-row">
+          <button onClick={() => loginWithGoogle()} className="bg-white hover:bg-rose-400 rounded-md w-[13rem] h-[2.5rem] font-bold font-poppins tracking-wider focus:outline-none flex justify-center items-center">
+            {buttonText} <img src={GoogleLogo} alt="Google Logo" style={{ width: "24px", height: "24px", marginLeft: "10px" }}/>
+        </button>
+        </div>
+        
       )}
     </div>
   );

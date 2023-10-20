@@ -81,12 +81,13 @@ const LoginPage = () => {
               onClick={() => {
                 handleLoginUser();
               }}
-              className="bg-white hover:bg-rose-400 rounded-md w-[10rem] mr-[1rem] font-bold font-poppins tracking-wider focus:outline-none"
+              className="bg-white hover:bg-rose-400 rounded-md w-[8rem] h-[2.5rem] mr-[1rem] font-bold font-poppins tracking-wider focus:outline-none"
             >
               Login
             </button>
             {/* <GoogleLogin onSuccess={showToast} onError={() => {console.log("Login Failed");}}/> */}
-            <GoogleLogin buttonText="Login with Google 🚀" />
+            <GoogleLogin buttonText="Login with Google"/>
+            
           </div>
           <div className="flex flex-row justify-center items-center">
             <span>Don't you Have an Account ? </span>
