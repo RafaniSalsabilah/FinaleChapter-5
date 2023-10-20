@@ -14,8 +14,8 @@ import { useGetDataUser } from "../services/auth/get_me_user";
 const HomePage = () => {
   const navigate = useNavigate();
   const [Search, setSearch] = useState("");
-  const [Popular, setPopular] = useState([])
-  const [User, setUser] = useState([])
+  const [Popular, setPopular] = useState([]);
+  const [User, setUser] = useState([]);
 
   const { data: fetchUser } = useGetDataUser({});
   const { data: fetchPopular, isLoading } = useDataMovieQueryPopular({});
@@ -27,11 +27,10 @@ const HomePage = () => {
 
   useEffect(() => {
     if (fetchPopular && fetchUser) {
-      setPopular(fetchPopular.data)
-      setUser(fetchUser)
+      setPopular(fetchPopular.data);
+      setUser(fetchUser);
     }
-  }, [fetchPopular, fetchUser, User])
-  
+  }, [fetchPopular, fetchUser, User]);
 
   SwiperCore.use([Pagination, Autoplay]);
   if (isLoading) {
@@ -48,8 +47,10 @@ const HomePage = () => {
     <>
       <div className="parents">
         <div className="header-section absolute flex justify-between z-50 w-full">
-          <div className="brand-text flex justify-center items-center mx-6">
-            <div className='text-red-600 text-[2.5rem] font-bold'><a href='/home'>Movielist</a></div>
+          <div className="brand-text flex justify-center items-center mx-[2rem]">
+            <div className="text-red-600 text-[2.5rem] font-bold">
+              <a href="/home">Movielist</a>
+            </div>
           </div>
           <div className="search-section w-[40%] flex justify-center items-center">
             <div className="relative w-full">
@@ -142,7 +143,7 @@ const HomePage = () => {
               </div>
             </Link>
           </div>
-          <div className="flex flex-wrap px-[1.7rem] gap-4 py-[2rem]">
+          <div className="flex flex-wrap justify-between items-center px-[1.7rem] gap-4 py-[2rem]">
             {renderPopularMovieList()}
           </div>
         </div>
